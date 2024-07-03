@@ -111,6 +111,13 @@ namespace Ecommerce_project.Controllers
                 return NotFound();
             }
 
+            var productCategories = await _context.ProductCategories
+                .Where(pc => pc.CategoryId == id)
+                .ToListAsync();
+
+            _context.ProductCategories.RemoveRange(productCategories);
+
+
             category.IsActive = false;
             _context.Entry(category).State = EntityState.Modified;
             await _context.SaveChangesAsync();

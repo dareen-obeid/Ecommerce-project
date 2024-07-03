@@ -25,6 +25,7 @@ namespace Ecommerce_project.Controllers
         {
             var products = await _context.Products.Include(p => p.ProductCategories)
                                       .ThenInclude(pc => pc.Category)
+                                      .Where(p => p.IsActive)
                                       .ToListAsync();
 
             var productDtos = products.Select(product => ProductToDto(product)).ToList();
@@ -179,71 +180,6 @@ namespace Ecommerce_project.Controllers
 
             return NoContent();
         }
-
-        //// Search Products
-        //[HttpGet("search")]
-        //public async Task<ActionResult<IEnumerable<ProductDto>>> SearchProducts(string keyword)
-        //{
-        //    var products = await _context.Products
-        //        .Where(p => p.IsActive && (p.ProductName.Contains(keyword) || p.Description.Contains(keyword)))
-        //        .Select(p => new ProductDto
-        //        {
-        //            ProductId = p.ProductId,
-        //            ProductName = p.ProductName,
-        //            Description = p.Description,
-        //            Price = p.Price,
-        //            ProductCode = p.ProductCode,
-        //            CurrentStock = p.CurrentStock,
-        //            LowStockAlert = p.LowStockAlert,
-        //            CreatedDate = p.CreatedDate,
-        //            LastUpdatedDate = p.LastUpdatedDate,
-        //            IsActive = p.IsActive,
-        //            CategoryIds = p.ProductCategories.Select(pc => pc.CategoryId).ToList()
-        //        }).ToListAsync();
-
-        //    return products;
-        //}
-
-        //// Filter Products
-        //[HttpGet("filter")]
-        //public async Task<ActionResult<IEnumerable<ProductDto>>> FilterProducts(int? categoryId, decimal? minPrice, decimal? maxPrice)
-        //{
-        //    var query = _context.Products.Where(p => p.IsActive).AsQueryable();
-
-        //    if (categoryId.HasValue)
-        //    {
-        //        query = query.Where(p => p.ProductCategories.Any(pc => pc.CategoryId == categoryId && pc.Category.IsActive));
-        //    }
-
-        //    if (minPrice.HasValue)
-        //    {
-        //        query = query.Where(p => p.Price >= minPrice.Value);
-        //    }
-
-        //    if (maxPrice.HasValue)
-        //    {
-        //        query = query.Where(p => p.Price <= maxPrice.Value);
-        //    }
-
-        //    var products = await query
-        //        .Select(p => new ProductDto
-        //        {
-        //            ProductId = p.ProductId,
-        //            ProductName = p.ProductName,
-        //            Description = p.Description,
-        //            Price = p.Price,
-        //            ProductCode = p.ProductCode,
-        //            CurrentStock = p.CurrentStock,
-        //            LowStockAlert = p.LowStockAlert,
-        //            CreatedDate = p.CreatedDate,
-        //            LastUpdatedDate = p.LastUpdatedDate,
-        //            IsActive = p.IsActive,
-        //            CategoryIds = p.ProductCategories.Select(pc => pc.CategoryId).ToList()
-        //        }).ToListAsync();
-
-        //    return products;
-        //}
-
 
         // GET: api/Product/search
 
