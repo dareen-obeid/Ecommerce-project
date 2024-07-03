@@ -1,4 +1,5 @@
 ﻿using Ecommerce_project.Data;
+using Ecommerce_project.Mappings;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,11 @@ builder.Services.AddSwaggerGen();
 // Add the DbContext service
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register AutoMapper and specify the assembly containing the profiles
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
+
 
 var app = builder.Build();
 

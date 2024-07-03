@@ -1,4 +1,5 @@
-﻿using Ecommerce_project.Data;
+﻿using AutoMapper;
+using Ecommerce_project.Data;
 using Ecommerce_project.DTOs;
 using Ecommerce_project.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,20 +13,25 @@ namespace Ecommerce_project.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public CategoryController(ApplicationDbContext context)
+
+        public CategoryController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
+
         }
 
         // GET: api/Category
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategories()
         {
-            return await _context.Categories
+            var categories = await _context.Categories
                 .Where(c => c.IsActive)
-                .Select(c => CategoryToDTO(c))
                 .ToListAsync();
+
+            return _mapper.Map<List<CategoryDto>>(categories);
         }
 
 
@@ -41,7 +47,7 @@ namespace Ecommerce_project.Controllers
                 return NotFound();
             }
 
-            return CategoryToDTO(category); ;
+            return _mapper.Map<CategoryDto>(category);
         }
 
 
@@ -58,8 +64,8 @@ namespace Ecommerce_project.Controllers
                 return NotFound();
             }
 
-            category.CategoryName = categoryDto.CategoryName;
-            category.IsActive = categoryDto.IsActive;
+            _mapper.Map(categoryDto, category);
+            category.CategoryId = id;
 
             _context.Entry(category).State = EntityState.Modified;
 
@@ -86,11 +92,7 @@ namespace Ecommerce_project.Controllers
         [HttpPost]
         public async Task<ActionResult<CategoryDto>> PostCategory(CategoryDto categoryDto)
         {
-            var category = new Category
-            {
-                CategoryName = categoryDto.CategoryName,
-                IsActive = categoryDto.IsActive
-            };
+            var category = _mapper.Map<Category>(categoryDto);
 
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
@@ -132,13 +134,7 @@ namespace Ecommerce_project.Controllers
         }
 
 
-        private static CategoryDto CategoryToDTO(Category category) =>
-           new CategoryDto
-           {
-               CategoryId = category.CategoryId,
-               CategoryName = category.CategoryName,
-               IsActive = category.IsActive
-           };
+       
 
 
     }

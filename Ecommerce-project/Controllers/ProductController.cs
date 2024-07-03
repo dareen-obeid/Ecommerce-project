@@ -1,4 +1,5 @@
-﻿using Ecommerce_project.Data;
+﻿using AutoMapper;
+using Ecommerce_project.Data;
 using Ecommerce_project.DTOs;
 using Ecommerce_project.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +13,12 @@ namespace Ecommerce_project.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
 
@@ -28,7 +31,7 @@ namespace Ecommerce_project.Controllers
                                       .Where(p => p.IsActive)
                                       .ToListAsync();
 
-            var productDtos = products.Select(product => ProductToDto(product)).ToList();
+            var productDtos = _mapper.Map<List<ProductDto>>(products);
 
             return productDtos;
 
@@ -48,7 +51,9 @@ namespace Ecommerce_project.Controllers
             {
                 return NotFound();
             }
-            return ProductToDto(product);
+            var productDto = _mapper.Map<ProductDto>(product);
+
+            return productDto;
         }
 
 
@@ -57,10 +62,6 @@ namespace Ecommerce_project.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct([FromRoute] int id, ProductDto productDto)
         {
-            //if (id != productDto.ProductId)
-            //{
-            //    return BadRequest();
-            //}
 
             var product = await _context.Products
                 .Include(p => p.ProductCategories)
@@ -81,14 +82,9 @@ namespace Ecommerce_project.Controllers
                 return BadRequest("One or more categories are inactive or do not exist.");
             }
 
-            product.ProductName = productDto.ProductName;
-            product.Description = productDto.Description;
-            product.Price = productDto.Price;
-            product.ProductCode = productDto.ProductCode;
-            product.CurrentStock = productDto.CurrentStock;
-            product.LowStockAlert = productDto.LowStockAlert;
+            _mapper.Map(productDto, product);
+            product.ProductId = id;
             product.LastUpdatedDate = DateTime.UtcNow;
-            product.IsActive = productDto.IsActive;
 
             // Update categories
             product.ProductCategories.Clear();
@@ -134,22 +130,13 @@ namespace Ecommerce_project.Controllers
                 return BadRequest("One or more categories are inactive.");
             }
 
-            var product = new Product
+            var product = _mapper.Map<Product>(productDto);
+            product.CreatedDate = DateTime.UtcNow;
+            product.LastUpdatedDate = DateTime.UtcNow;
+            product.ProductCategories = activeCategoryIds.Select(categoryId => new ProductCategory
             {
-                ProductName = productDto.ProductName,
-                Description = productDto.Description,
-                Price = productDto.Price,
-                ProductCode = productDto.ProductCode,
-                CurrentStock = productDto.CurrentStock,
-                LowStockAlert = productDto.LowStockAlert,
-                CreatedDate = DateTime.UtcNow,
-                LastUpdatedDate = DateTime.UtcNow,
-                IsActive = productDto.IsActive,
-                ProductCategories = activeCategoryIds.Select(categoryId => new ProductCategory
-                {
-                    CategoryId = categoryId
-                }).ToList()
-            };
+                CategoryId = categoryId
+            }).ToList();
 
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
@@ -182,7 +169,6 @@ namespace Ecommerce_project.Controllers
         }
 
         // GET: api/Product/search
-
         [HttpGet("search")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> SearchProducts(string keyword)
         {
@@ -195,7 +181,7 @@ namespace Ecommerce_project.Controllers
                              p.ProductCategories.Any(pc => pc.Category.CategoryName.Contains(keyword))))
                 .ToListAsync();
 
-            var productDtos = products.Select(product => ProductToDto(product)).ToList();
+            var productDtos = _mapper.Map<List<ProductDto>>(products);
 
             return productDtos;
         }
@@ -237,7 +223,7 @@ namespace Ecommerce_project.Controllers
             }
 
             var products = await productsQuery.ToListAsync();
-            var productDtos = products.Select(product => ProductToDto(product)).ToList();
+            var productDtos = _mapper.Map<List<ProductDto>>(products);
 
             return productDtos;
         }
@@ -290,27 +276,7 @@ namespace Ecommerce_project.Controllers
         {
             return _context.Products.Any(e => e.ProductId == id && e.IsActive);
         }
-
-
-        private static ProductDto ProductToDto(Product product)
-        {
-            return new ProductDto
-            {
-                ProductId = product.ProductId,
-                ProductName = product.ProductName,
-                Description = product.Description,
-                Price = product.Price,
-                ProductCode = product.ProductCode,
-                CurrentStock = product.CurrentStock,
-                LowStockAlert = product.LowStockAlert,
-                CreatedDate = product.CreatedDate,
-                LastUpdatedDate = product.LastUpdatedDate,
-                IsActive = product.IsActive,
-                CategoryIds = product.ProductCategories.Where(pc => pc.Category.IsActive)
-                              .Select(pc => pc.CategoryId)
-                              .ToList()
-            };
-        }
+     
 
     }
 
