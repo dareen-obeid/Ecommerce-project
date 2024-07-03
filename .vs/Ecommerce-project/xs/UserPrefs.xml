@@ -1,0 +1,42 @@
+﻿<Properties StartupConfiguration="{4B0AAE3F-9A32-4F28-9D1F-29EA9A73CE34}|https">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ecommerce-project/Controllers/ProductController.cs">
+    <Files>
+      <File FileName="Ecommerce-project/Models/Product.cs" Line="56" Column="6" />
+      <File FileName="Ecommerce-project/Models/Category.cs" Line="8" Column="1" />
+      <File FileName="Ecommerce-project/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="Ecommerce-project/DTOs/ProductDto.cs" />
+      <File FileName="Ecommerce-project/DTOs/CategoryDto.cs" Line="12" Column="1" />
+      <File FileName="Ecommerce-project/Controllers/ProductController.cs" Line="315" Column="24" />
+      <File FileName="Ecommerce-project/DTOs/ProductCategoryDto.cs" Line="1" Column="1" />
+      <File FileName="Ecommerce-project/appsettings.json" />
+      <File FileName="Ecommerce-project/Program.cs" Line="32" Column="1" />
+      <File FileName="Ecommerce-project/Models/ProductCategory.cs" Line="7" Column="2" />
+      <File FileName="Ecommerce-project/Properties/launchSettings.json" Line="26" Column="70" />
+      <File FileName="Ecommerce-project/Controllers/CategoryController.cs" Line="20" Column="1" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Ecommerce-project" expanded="True">
+            <Node name="Ecommerce-project">
+              <Node name="Controllers" expanded="True">
+                <Node name="ProductController.cs" selected="True" />
+              </Node>
+              <Node name="Data" expanded="True" />
+              <Node name="DTOs" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Ecommerce-project PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+</Properties>
