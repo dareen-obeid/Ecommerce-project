@@ -2,6 +2,7 @@
 using Ecommerce_project.Data;
 using Ecommerce_project.DTOs;
 using Ecommerce_project.Models;
+using Ecommerce_project.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,13 +13,12 @@ namespace Ecommerce_project.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IMapper _mapper;
+        private readonly IProductService _productService;
 
-        public ProductController(ApplicationDbContext context, IMapper mapper)
+
+        public ProductController(IProductService productService)
         {
-            _context = context;
-            _mapper = mapper;
+            _productService = productService;
         }
 
 
@@ -26,14 +26,8 @@ namespace Ecommerce_project.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()
         {
-            var products = await _context.Products.Include(p => p.ProductCategories)
-                                      .ThenInclude(pc => pc.Category)
-                                      .Where(p => p.IsActive)
-                                      .ToListAsync();
-
-            var productDtos = _mapper.Map<List<ProductDto>>(products);
-
-            return productDtos;
+            var products = await _productService.GetAllActiveProducts();
+            return Ok(products);
 
         }
 
@@ -42,18 +36,12 @@ namespace Ecommerce_project.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDto>> GetProduct(int id)
         {
-            var product = await _context.Products
-                .Include(p => p.ProductCategories)
-                .ThenInclude(pc => pc.Category)
-                .FirstOrDefaultAsync(p => p.ProductId == id && p.IsActive);
-
+            var product = await _productService.GetProductById(id);
             if (product == null)
             {
                 return NotFound();
             }
-            var productDto = _mapper.Map<ProductDto>(product);
-
-            return productDto;
+            return Ok(product);
         }
 
 
@@ -63,55 +51,12 @@ namespace Ecommerce_project.Controllers
         public async Task<IActionResult> UpdateProduct([FromRoute] int id, ProductDto productDto)
         {
 
-            var product = await _context.Products
-                .Include(p => p.ProductCategories)
-                .FirstOrDefaultAsync(p => p.ProductId == id && p.IsActive);
-
-            if (product == null)
+            if (id != productDto.ProductId)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            var activeCategoryIds = await _context.Categories
-                .Where(c => productDto.CategoryIds.Contains(c.CategoryId) && c.IsActive)
-                .Select(c => c.CategoryId)
-                .ToListAsync();
-
-            if (!activeCategoryIds.Any())
-            {
-                return BadRequest("One or more categories are inactive or do not exist.");
-            }
-
-            _mapper.Map(productDto, product);
-            product.ProductId = id;
-            product.LastUpdatedDate = DateTime.UtcNow;
-
-            // Update categories
-            product.ProductCategories.Clear();
-            product.ProductCategories = activeCategoryIds.Select(categoryId => new ProductCategory
-            {
-                ProductId = product.ProductId,
-                CategoryId = categoryId
-            }).ToList();
-
-            _context.Entry(product).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _productService.UpdateProduct(id, productDto);
             return NoContent();
         }
 
@@ -120,51 +65,16 @@ namespace Ecommerce_project.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductDto>> PostProduct(ProductDto productDto)
         {
-            var activeCategoryIds = await _context.Categories
-                .Where(c => productDto.CategoryIds.Contains(c.CategoryId) && c.IsActive)
-                .Select(c => c.CategoryId)
-                .ToListAsync();
-
-            if (!activeCategoryIds.Any())
-            {
-                return BadRequest("One or more categories are inactive.");
-            }
-
-            var product = _mapper.Map<Product>(productDto);
-            product.CreatedDate = DateTime.UtcNow;
-            product.LastUpdatedDate = DateTime.UtcNow;
-            product.ProductCategories = activeCategoryIds.Select(categoryId => new ProductCategory
-            {
-                CategoryId = categoryId
-            }).ToList();
-
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-
-            productDto.ProductId = product.ProductId;
-
-            return CreatedAtAction(nameof(GetProduct), new { id = product.ProductId }, productDto);
+            await _productService.AddProduct(productDto);
+            return CreatedAtAction(nameof(GetProduct), new { id = productDto.ProductId }, productDto);
         }
-
-
 
 
         // DELETE: api/Product/1
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            product.IsActive = false;
-            product.LastUpdatedDate = DateTime.UtcNow;
-
-            _context.Entry(product).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-
+            await _productService.DeleteProduct(id);
             return NoContent();
         }
 
@@ -172,110 +82,66 @@ namespace Ecommerce_project.Controllers
         [HttpGet("search")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> SearchProducts(string keyword)
         {
-            var products = await _context.Products
-                .Include(p => p.ProductCategories)
-                .ThenInclude(pc => pc.Category)
-                .Where(p => p.IsActive &&
-                            (p.ProductName.Contains(keyword) ||
-                             p.Description.Contains(keyword) ||
-                             p.ProductCategories.Any(pc => pc.Category.CategoryName.Contains(keyword))))
-                .ToListAsync();
-
-            var productDtos = _mapper.Map<List<ProductDto>>(products);
-
-            return productDtos;
+            var products = await _productService.SearchProducts(keyword);
+            return Ok(products);
         }
 
         // GET: api/Product/filter
         [HttpGet("filter")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> FilterProducts(string? categoryName, decimal? minPrice, decimal? maxPrice)
         {
-            IQueryable<Product> productsQuery = _context.Products
-                .Include(p => p.ProductCategories)
-                .ThenInclude(pc => pc.Category)
-                .Where(p => p.IsActive);
-
-            if (!string.IsNullOrEmpty(categoryName))
-            {
-                int? categoryId = await _context.Categories
-                    .Where(c => c.CategoryName == categoryName && c.IsActive)
-                    .Select(c => (int?)c.CategoryId)
-                    .FirstOrDefaultAsync();
-
-                if (categoryId.HasValue)
-                {
-                    productsQuery = productsQuery.Where(p => p.ProductCategories.Any(pc => pc.CategoryId == categoryId));
-                }
-                else
-                {
-                    return NotFound($"Category '{categoryName}' not found.");
-                }
-            }
-
-            if (minPrice.HasValue)
-            {
-                productsQuery = productsQuery.Where(p => p.Price >= minPrice);
-            }
-
-            if (maxPrice.HasValue)
-            {
-                productsQuery = productsQuery.Where(p => p.Price <= maxPrice);
-            }
-
-            var products = await productsQuery.ToListAsync();
-            var productDtos = _mapper.Map<List<ProductDto>>(products);
-
-            return productDtos;
+            var products = await _productService.FilterProducts(categoryName, minPrice, maxPrice);
+            return Ok(products);
         }
 
-        // GET: api/Product/stocklevels
-        [HttpGet("stocklevels")]
-        public async Task<ActionResult<IEnumerable<ProductStockDto>>> ViewStockLevels()
-        {
-            var products = await _context.Products
-                .Where(p => p.IsActive)
-                .Select(p => new ProductStockDto
-                {
-                    ProductId = p.ProductId,
-                    ProductName = p.ProductName,
-                    CurrentStock = p.CurrentStock,
-                    LowStockAlert = p.LowStockAlert
-                })
-                .ToListAsync();
+        //// GET: api/Product/stocklevels
+        //[HttpGet("stocklevels")]
+        //public async Task<ActionResult<IEnumerable<StockDTO>>> ViewStockLevels()
+        //{
+        //    var products = await _context.Products
+        //        .Where(p => p.IsActive)
+        //        .Select(p => new StockDTO
+        //        {
+        //            ProductId = p.ProductId,
+        //            ProductName = p.ProductName,
+        //            CurrentStock = p.CurrentStock,
+        //            LowStockAlert = p.LowStockAlert
+        //        })
+        //        .ToListAsync();
 
-            return products;
-        }
+        //    return products;
+        //}
 
-        // PUT: api/Product/stocklevels/1
-        [HttpPut("stocklevels/{id}")]
-        public async Task<IActionResult> UpdateStockLevels([FromRoute] int id, int newStock)
-        {
-            var product = await _context.Products
-                .FirstOrDefaultAsync(p => p.ProductId == id && p.IsActive);
+        //// PUT: api/Product/stocklevels/1
+        //[HttpPut("stocklevels/{id}")]
+        //public async Task<IActionResult> UpdateStockLevels([FromRoute] int id, int newStock)
+        //{
+        //    var product = await _context.Products
+        //        .FirstOrDefaultAsync(p => p.ProductId == id && p.IsActive);
 
-            if (product == null)
-            {
-                return NotFound();
-            }
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            product.CurrentStock = newStock;
-            product.LastUpdatedDate = DateTime.UtcNow;
+        //    product.CurrentStock = newStock;
+        //    product.LastUpdatedDate = DateTime.UtcNow;
 
-            _context.Entry(product).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+        //    _context.Entry(product).State = EntityState.Modified;
+        //    await _context.SaveChangesAsync();
 
-            if (product.CurrentStock <= product.LowStockAlert)
-            {
-                //Low Stock Alert
-            }
+        //    if (product.CurrentStock <= product.LowStockAlert)
+        //    {
+        //        //Low Stock Alert
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.ProductId == id && e.IsActive);
-        }
+        //private bool ProductExists(int id)
+        //{
+        //    return _context.Products.Any(e => e.ProductId == id && e.IsActive);
+        //}
      
 
     }
