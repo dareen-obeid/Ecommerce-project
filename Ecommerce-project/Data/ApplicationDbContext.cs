@@ -19,6 +19,13 @@ namespace Ecommerce_project.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.HasKey(p => p.ProductId);
+                entity.HasIndex(p => p.ProductCode).IsUnique();
+            });
+
             modelBuilder.Entity<ProductCategory>()
                 .HasKey(pc => pc.ProductCategoryId);
 

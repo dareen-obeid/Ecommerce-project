@@ -30,6 +30,9 @@
     <None Remove="Mappings\" />
     <None Remove="Services\" />
     <None Remove="Repositories\" />
+    <None Remove="Repositories\Interfaces\" />
+    <None Remove="Services\Interfaces\" />
+    <None Remove="Middleware\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -38,5 +41,8 @@
     <Folder Include="Mappings\" />
     <Folder Include="Services\" />
     <Folder Include="Repositories\" />
+    <Folder Include="Repositories\Interfaces\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Middleware\" />
   </ItemGroup>
 </Project>

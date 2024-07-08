@@ -94,55 +94,7 @@ namespace Ecommerce_project.Controllers
             return Ok(products);
         }
 
-        //// GET: api/Product/stocklevels
-        //[HttpGet("stocklevels")]
-        //public async Task<ActionResult<IEnumerable<StockDTO>>> ViewStockLevels()
-        //{
-        //    var products = await _context.Products
-        //        .Where(p => p.IsActive)
-        //        .Select(p => new StockDTO
-        //        {
-        //            ProductId = p.ProductId,
-        //            ProductName = p.ProductName,
-        //            CurrentStock = p.CurrentStock,
-        //            LowStockAlert = p.LowStockAlert
-        //        })
-        //        .ToListAsync();
 
-        //    return products;
-        //}
-
-        //// PUT: api/Product/stocklevels/1
-        //[HttpPut("stocklevels/{id}")]
-        //public async Task<IActionResult> UpdateStockLevels([FromRoute] int id, int newStock)
-        //{
-        //    var product = await _context.Products
-        //        .FirstOrDefaultAsync(p => p.ProductId == id && p.IsActive);
-
-        //    if (product == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    product.CurrentStock = newStock;
-        //    product.LastUpdatedDate = DateTime.UtcNow;
-
-        //    _context.Entry(product).State = EntityState.Modified;
-        //    await _context.SaveChangesAsync();
-
-        //    if (product.CurrentStock <= product.LowStockAlert)
-        //    {
-        //        //Low Stock Alert
-        //    }
-
-        //    return NoContent();
-        //}
-
-        //private bool ProductExists(int id)
-        //{
-        //    return _context.Products.Any(e => e.ProductId == id && e.IsActive);
-        //}
-     
 
     }
 

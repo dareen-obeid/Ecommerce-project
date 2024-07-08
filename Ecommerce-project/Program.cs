@@ -1,7 +1,9 @@
 ﻿using Ecommerce_project.Data;
 using Ecommerce_project.Mappings;
+using Ecommerce_project.Middleware;
 using Ecommerce_project.Repositories;
 using Ecommerce_project.Services;
+using Ecommerce_project.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,8 +25,12 @@ builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 // Register repositories and services
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IStockRepository, StockRepository>();
+builder.Services.AddScoped<IStockService, StockService>();
+
+builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 
 var app = builder.Build();
 
