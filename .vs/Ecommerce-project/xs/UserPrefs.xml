@@ -1,30 +1,22 @@
 ﻿<Properties StartupConfiguration="{4B0AAE3F-9A32-4F28-9D1F-29EA9A73CE34}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Ecommerce-project PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Ecommerce-project/Data/ApplicationDbContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ecommerce-project/Program.cs">
     <Files>
-      <File FileName="Ecommerce-project/Repositories/IProductRepository.cs" Line="14" Column="1" />
-      <File FileName="Ecommerce-project/Repositories/ProductRepository.cs" Line="76" Column="1" />
-      <File FileName="Ecommerce-project/Controllers/ProductController.cs" Line="96" Column="1" />
-      <File FileName="Ecommerce-project/Services/IProductService.cs" Line="15" Column="6" />
-      <File FileName="Ecommerce-project/Services/ProductService.cs" Line="49" Column="1" />
-      <File FileName="Ecommerce-project/DTOs/StockDTO.cs" Line="12" Column="1" />
-      <File FileName="Ecommerce-project/Controllers/StockController.cs" Line="33" Column="12" />
-      <File FileName="Ecommerce-project/Repositories/IStockRepository.cs" Line="10" Column="6" />
-      <File FileName="Ecommerce-project/Repositories/StockRepository.cs" Line="43" Column="1" />
-      <File FileName="Ecommerce-project/Program.cs" Line="33" Column="58" />
-      <File FileName="Ecommerce-project/Migrations/20240630214858_product.cs" Line="9" Column="26" />
-      <File FileName="Ecommerce-project/Middleware/ExceptionMiddleware.cs" Line="42" Column="10" />
+      <File FileName="Ecommerce-project/Repositories/ProductRepository.cs" />
+      <File FileName="Ecommerce-project/Controllers/ProductController.cs" />
+      <File FileName="Ecommerce-project/Services/ProductService.cs" />
+      <File FileName="Ecommerce-project/DTOs/StockDTO.cs" Line="4" Column="15" />
+      <File FileName="Ecommerce-project/Controllers/StockController.cs" />
+      <File FileName="Ecommerce-project/Repositories/StockRepository.cs" />
+      <File FileName="Ecommerce-project/Program.cs" Line="34" Column="1" />
+      <File FileName="Ecommerce-project/Migrations/20240630214858_product.cs" />
       <File FileName="Ecommerce-project/Data/ApplicationDbContext.cs" Line="18" Column="1" />
-      <File FileName="Ecommerce-project/Repositories/ICategoryRepository.cs" Line="15" Column="6" NotebookId="1" />
-      <File FileName="Ecommerce-project/Repositories/CategoryRepository.cs" Line="8" Column="44" NotebookId="1" />
-      <File FileName="Ecommerce-project/Controllers/CategoryController.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Ecommerce-project/Services/CategoryService.cs" Line="41" Column="14" NotebookId="1" />
-      <File FileName="Ecommerce-project/Services/ICategoryService.cs" Line="14" Column="1" NotebookId="1" />
-      <File FileName="Ecommerce-project/DTOs/ProductDto.cs" Line="20" Column="6" NotebookId="1" />
-      <File FileName="Ecommerce-project/Services/Interfaces/IStockService.cs" Line="10" Column="6" NotebookId="1" />
+      <File FileName="Ecommerce-project/Middleware/ExceptionHandlingMiddleware.cs" Line="42" Column="10" />
+      <File FileName="Ecommerce-project/Repositories/CategoryRepository.cs" NotebookId="1" />
+      <File FileName="Ecommerce-project/Controllers/CategoryController.cs" NotebookId="1" />
+      <File FileName="Ecommerce-project/Services/CategoryService.cs" NotebookId="1" />
+      <File FileName="Ecommerce-project/DTOs/ProductDto.cs" NotebookId="1" />
+      <File FileName="Ecommerce-project/Services/Interfaces/IStockService.cs" NotebookId="1" />
       <File FileName="Ecommerce-project/Services/StockService.cs" Line="26" Column="6" NotebookId="1" />
     </Files>
     <Pads>
@@ -32,25 +24,22 @@
         <State name="__root__">
           <Node name="Ecommerce-project">
             <Node name="Ecommerce-project">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Data">
-                <Node name="ApplicationDbContext.cs" selected="True" />
-              </Node>
+              <Node name="Data" expanded="True" />
               <Node name="DTOs" expanded="True" />
               <Node name="Mappings" expanded="True" />
-              <Node name="Middleware" expanded="True" />
               <Node name="Repositories" expanded="True" />
               <Node name="Services" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Ecommerce-project PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>
