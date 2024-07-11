@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aw762xm7V2TA/6DRMMn3Rt3EE9f75cSOQgJiy4pz5Pg87+vudwag0ZE35NPM4ghw+Al1uFRI+Uzh6sC6Z+lskg==",
+  "dgSpecHash": "XcuF9gnTbkhzp/mgiXHFntPmHLHer+N5LnhdaKufsTHH3byTLdG95cPaslLAIKXkGUd8GvWiQzUWwqSR1N2s0w==",
   "success": true,
-  "projectFilePath": "/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/Ecommerce-project.csproj",
+  "projectFilePath": "/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/Presentation.csproj",
   "expectedPackageFiles": [
     "/Users/dareenobeid/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/Users/dareenobeid/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/7.0.0/automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

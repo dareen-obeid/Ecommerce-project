@@ -1,45 +1,48 @@
 ﻿<Properties StartupConfiguration="{4B0AAE3F-9A32-4F28-9D1F-29EA9A73CE34}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.DataAccess FirstBuild="True" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Ecommerce-project/Program.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataAccess/Repositories/Interfaces/IStockRepository.cs">
     <Files>
-      <File FileName="Ecommerce-project/Repositories/ProductRepository.cs" />
-      <File FileName="Ecommerce-project/Controllers/ProductController.cs" />
-      <File FileName="Ecommerce-project/Services/ProductService.cs" />
-      <File FileName="Ecommerce-project/DTOs/StockDTO.cs" Line="4" Column="15" />
-      <File FileName="Ecommerce-project/Controllers/StockController.cs" />
-      <File FileName="Ecommerce-project/Repositories/StockRepository.cs" />
-      <File FileName="Ecommerce-project/Program.cs" Line="34" Column="1" />
-      <File FileName="Ecommerce-project/Migrations/20240630214858_product.cs" />
-      <File FileName="Ecommerce-project/Data/ApplicationDbContext.cs" Line="18" Column="1" />
-      <File FileName="Ecommerce-project/Middleware/ExceptionHandlingMiddleware.cs" Line="42" Column="10" />
-      <File FileName="Ecommerce-project/Repositories/CategoryRepository.cs" NotebookId="1" />
-      <File FileName="Ecommerce-project/Controllers/CategoryController.cs" NotebookId="1" />
-      <File FileName="Ecommerce-project/Services/CategoryService.cs" NotebookId="1" />
-      <File FileName="Ecommerce-project/DTOs/ProductDto.cs" NotebookId="1" />
-      <File FileName="Ecommerce-project/Services/Interfaces/IStockService.cs" NotebookId="1" />
-      <File FileName="Ecommerce-project/Services/StockService.cs" Line="26" Column="6" NotebookId="1" />
+      <File FileName="DataAccess/Data/ApplicationDbContext.cs" Line="7" Column="47" />
+      <File FileName="DataAccess/Repositories/CategoryRepository.cs" Line="1" Column="1" />
+      <File FileName="DataAccess/Repositories/ProductRepository.cs" Line="1" Column="1" />
+      <File FileName="DataAccess/Repositories/StockRepository.cs" Line="16" Column="44" />
+      <File FileName="BusinessLogic/Mappings/MappingProfile.cs" Line="1" Column="1" />
+      <File FileName="BusinessLogic/Services/CategoryService.cs" Line="1" Column="1" />
+      <File FileName="BusinessLogic/DTOs/StockDTO.cs" Line="10" Column="6" />
+      <File FileName="DataAccess/Models/Category.cs" Line="1" Column="1" />
+      <File FileName="DataAccess/Models/Product.cs" Line="46" Column="6" />
+      <File FileName="DataAccess/Models/ProductCategory.cs" Line="1" Column="1" />
+      <File FileName="DataAccess/Repositories/Interfaces/IStockRepository.cs" Line="8" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Ecommerce-project">
-            <Node name="Ecommerce-project">
-              <Node name="Data" expanded="True" />
+          <Node name="Ecommerce-project" expanded="True">
+            <Node name="BusinessLogic" expanded="True">
               <Node name="DTOs" expanded="True" />
               <Node name="Mappings" expanded="True" />
-              <Node name="Repositories" expanded="True" />
               <Node name="Services" expanded="True" />
-              <Node name="Program.cs" selected="True" />
             </Node>
+            <Node name="DataAccess">
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Repositories" expanded="True">
+                <Node name="Interfaces" expanded="True">
+                  <Node name="IStockRepository.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Presentation" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Presentation PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Ecommerce-project PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

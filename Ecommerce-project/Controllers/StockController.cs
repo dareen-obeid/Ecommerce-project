@@ -1,36 +1,50 @@
 ﻿using Ecommerce_project.DTOs;
-using Ecommerce_project.Services.Interfaces;
+using Ecommerce_project.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace Ecommerce_project.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class StockController : ControllerBase
     {
-        private readonly IStockService _stockService;
+        private readonly IProductService _productService;
 
-        public StockController(IStockService stockService)
+        public StockController(IProductService productService)
         {
-            _stockService = stockService;
+            _productService = productService;
         }
 
-        // GET: api/stock/stocklevels
-        [HttpGet("stocklevels")]
-        public async Task<ActionResult<IEnumerable<StockDTO>>> ViewStockLevels()
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<StockDto>>> GetAllStocks()
         {
-            return Ok(await _stockService.GetStockLevels());
+            var stocks = await _productService.GetStockLevels();
+            return Ok(stocks);
         }
 
-        // PUT: api/stock/stocklevels/{id}
-        [HttpPut("stocklevels/{id}")]
-        public async Task<IActionResult> UpdateStockLevels(int id, int newStock)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<StockDto>> GetStock(int id)
         {
+            var stock = await _productService.GetProductById(id);
+            if (stock == null)
+                return NotFound($"Stock with ID {id} not found.");
 
-                await _stockService.UpdateStockLevels(id, newStock);
+            return Ok(stock);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateStock(int id, [FromBody] int newStock)
+        {
+            try
+            {
+                await _productService.UpdateStock(id, newStock);
                 return NoContent();
-           
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest($"Error updating stock: {ex.Message}");
+            }
         }
     }
 }
