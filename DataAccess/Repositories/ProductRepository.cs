@@ -148,6 +148,7 @@ namespace Ecommerce_project.Repositories
             if (product != null && product.IsActive)
             {
                 product.CurrentStock = newStock;
+                product.LastUpdatedDate = DateTime.UtcNow;
                 await _context.SaveChangesAsync();
             }
         }

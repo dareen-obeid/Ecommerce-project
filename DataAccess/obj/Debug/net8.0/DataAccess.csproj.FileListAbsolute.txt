@@ -1,0 +1,13 @@
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/bin/Debug/net8.0/DataAccess.deps.json
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/bin/Debug/net8.0/DataAccess.dll
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/bin/Debug/net8.0/DataAccess.pdb
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/DataAccess.csproj.AssemblyReference.cache
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/DataAccess.AssemblyInfoInputs.cache
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/DataAccess.AssemblyInfo.cs
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/DataAccess.csproj.CoreCompileInputs.cache
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/DataAccess.sourcelink.json
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/DataAccess.dll
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/refint/DataAccess.dll
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/DataAccess.pdb
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net8.0/ref/DataAccess.dll

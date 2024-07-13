@@ -14,6 +14,7 @@ namespace Ecommerce_project.Services
         Task<IEnumerable<ProductDto>> FilterProducts(string category, decimal? minPrice, decimal? maxPrice);
 
         Task<IEnumerable<StockDto>> GetStockLevels();
+        Task<StockDto> GetStockById(int id);
         Task UpdateStock(int id, int newStock);
     }
 }

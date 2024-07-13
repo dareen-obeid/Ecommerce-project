@@ -8,8 +8,9 @@
 /Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/BusinessLogic.AssemblyInfoInputs.cache
 /Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/BusinessLogic.AssemblyInfo.cs
 /Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.CoreCompileInputs.cache
-/Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.CopyComplete
 /Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/BusinessLogic.dll
 /Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/refint/BusinessLogic.dll
 /Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/BusinessLogic.pdb
 /Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/ref/BusinessLogic.dll
+/Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/BusinessLogic.sourcelink.json
+/Users/dareenobeid/Projects/Ecommerce-project/BusinessLogic/obj/Debug/net7.0/Business.CF5D6E35.Up2Date

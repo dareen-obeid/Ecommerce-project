@@ -70,8 +70,29 @@ namespace Ecommerce_project.Services
             return _mapper.Map<IEnumerable<StockDto>>(products);
         }
 
+        public async Task<StockDto> GetStockById(int id)
+        {
+            var product = await _productRepository.GetProductById(id);
+            if (product == null)
+            {
+                return null;
+            }
+            return _mapper.Map<StockDto>(product);
+        }
+
         public async Task UpdateStock(int id, int newStock)
         {
+            var product = await _productRepository.GetProductById(id);
+            if (product == null || !product.IsActive)
+            {
+                throw new KeyNotFoundException($"Product with ID {id} not found or inactive.");
+            }
+
+            if (newStock <= product.LowStockAlert)
+            {
+                Console.WriteLine($"Warning: Stock for Product ID {id} is low.");
+            }
+
             await _productRepository.UpdateStock(id, newStock);
         }
     }

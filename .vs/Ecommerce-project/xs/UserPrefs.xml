@@ -1,48 +1,31 @@
 ﻿<Properties StartupConfiguration="{4B0AAE3F-9A32-4F28-9D1F-29EA9A73CE34}|https">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.DataAccess FirstBuild="True" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataAccess/Repositories/Interfaces/IStockRepository.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Presentation PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ecommerce-project/Controllers/StockController.cs">
     <Files>
-      <File FileName="DataAccess/Data/ApplicationDbContext.cs" Line="7" Column="47" />
-      <File FileName="DataAccess/Repositories/CategoryRepository.cs" Line="1" Column="1" />
-      <File FileName="DataAccess/Repositories/ProductRepository.cs" Line="1" Column="1" />
-      <File FileName="DataAccess/Repositories/StockRepository.cs" Line="16" Column="44" />
-      <File FileName="BusinessLogic/Mappings/MappingProfile.cs" Line="1" Column="1" />
-      <File FileName="BusinessLogic/Services/CategoryService.cs" Line="1" Column="1" />
-      <File FileName="BusinessLogic/DTOs/StockDTO.cs" Line="10" Column="6" />
-      <File FileName="DataAccess/Models/Category.cs" Line="1" Column="1" />
-      <File FileName="DataAccess/Models/Product.cs" Line="46" Column="6" />
-      <File FileName="DataAccess/Models/ProductCategory.cs" Line="1" Column="1" />
-      <File FileName="DataAccess/Repositories/Interfaces/IStockRepository.cs" Line="8" Column="34" />
+      <File FileName="Ecommerce-project/Controllers/StockController.cs" Line="24" Column="10" />
+      <File FileName="BusinessLogic/Services/ProductService.cs" />
+      <File FileName="BusinessLogic/Services/Interfaces/IProductService.cs" />
+      <File FileName="DataAccess/Repositories/ProductRepository.cs" />
+      <File FileName="DataAccess/Repositories/CategoryRepository.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Ecommerce-project" expanded="True">
-            <Node name="BusinessLogic" expanded="True">
-              <Node name="DTOs" expanded="True" />
-              <Node name="Mappings" expanded="True" />
-              <Node name="Services" expanded="True" />
-            </Node>
-            <Node name="DataAccess">
-              <Node name="Data" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Repositories" expanded="True">
-                <Node name="Interfaces" expanded="True">
-                  <Node name="IStockRepository.cs" selected="True" />
-                </Node>
+            <Node name="Presentation">
+              <Node name="Controllers" expanded="True">
+                <Node name="StockController.cs" selected="True" />
               </Node>
             </Node>
-            <Node name="Presentation" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Presentation PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations />
 </Properties>

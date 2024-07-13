@@ -10,3 +10,4 @@
 /Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net7.0/refint/DataAccess.dll
 /Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net7.0/DataAccess.pdb
 /Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net7.0/ref/DataAccess.dll
+/Users/dareenobeid/Projects/Ecommerce-project/DataAccess/obj/Debug/net7.0/DataAccess.sourcelink.json

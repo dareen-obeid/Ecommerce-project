@@ -74,9 +74,10 @@
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/staticwebassets.build.json
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/staticwebassets.development.json
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/scopedcss/bundle/Presentation.styles.css
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Presentation.csproj.CopyComplete
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Presentation.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/refint/Presentation.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Presentation.pdb
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Presentation.genruntimeconfig.cache
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/ref/Presentation.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Presentation.sourcelink.json
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Presenta.BC777DBE.Up2Date

@@ -26,7 +26,7 @@ namespace Ecommerce_project.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<StockDto>> GetStock(int id)
         {
-            var stock = await _productService.GetProductById(id);
+            var stock = await _productService.GetStockById(id);
             if (stock == null)
                 return NotFound($"Stock with ID {id} not found.");
 
@@ -36,16 +36,10 @@ namespace Ecommerce_project.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateStock(int id, [FromBody] int newStock)
         {
-            try
-            {
+
                 await _productService.UpdateStock(id, newStock);
                 return NoContent();
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest($"Error updating stock: {ex.Message}");
-            }
+
         }
     }
 }
-
