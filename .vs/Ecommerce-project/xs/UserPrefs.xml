@@ -1,33 +1,32 @@
 ﻿<Properties StartupConfiguration="{4B0AAE3F-9A32-4F28-9D1F-29EA9A73CE34}|https">
-  <MonoDevelop.Ide.ItemProperties.Application FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.Ecommerce-project PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.ItemProperties.Infrastructure FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Ecommerce-project/Controllers/StockController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/RepositoriyInterfaces/ICategoryRepository.cs">
     <Files>
-      <File FileName="Ecommerce-project/Controllers/StockController.cs" Line="24" Column="10" />
-      <File FileName="BusinessLogic/Services/ProductService.cs" />
-      <File FileName="BusinessLogic/Services/Interfaces/IProductService.cs" />
-      <File FileName="DataAccess/Repositories/ProductRepository.cs" />
-      <File FileName="DataAccess/Repositories/CategoryRepository.cs" />
+      <File FileName="Application/Mappings/MappingProfile.cs" Line="13" Column="27" />
+      <File FileName="Domain/Repositories/ICategoryRepository.cs" Line="4" Column="50" />
+      <File FileName="Domain/Repositories/IProductRepository.cs" Line="4" Column="50" />
+      <File FileName="Domain/Models/ProductCategory.cs" Line="1" Column="1" />
+      <File FileName="Application/Services/CategoryService.cs" Line="12" Column="53" />
+      <File FileName="Infrastructure/Repositories/CategoryRepository.cs" Line="1" Column="1" />
+      <File FileName="Presentation/Controllers/CategoryController.cs" Line="16" Column="48" />
+      <File FileName="Ecommerce-project/Migrations/20240630214858_product.Designer.cs" Line="14" Column="32" />
+      <File FileName="Ecommerce-project/Migrations/20240630223316_ProductCategory.Designer.cs" Line="3" Column="25" />
+      <File FileName="Infrastructure/Middleware/ExceptionHandlingMiddleware.cs" Line="4" Column="1" />
+      <File FileName="Ecommerce-project/Program.cs" Line="30" Column="1" />
+      <File FileName="Presentation/Controllers/ProductController.cs" Line="2" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Ecommerce-project">
-            <Node name="BusinessLogic" expanded="True" />
-            <Node name="DataAccess" expanded="True" />
-            <Node name="Presentation" expanded="True">
-              <Node name="Controllers" expanded="True" />
-            </Node>
-          </Node>
+          <Node name="Ecommerce-project" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Domain FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Presentation FirstBuild="True" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

@@ -2,7 +2,7 @@
 using AutoMapper;
 using Ecommerce_project.DTOs;
 using Ecommerce_project.Models;
-using Ecommerce_project.Repositories;
+using Ecommerce_project.RepositoriyInterfaces;
 
 namespace Ecommerce_project.Services
 {

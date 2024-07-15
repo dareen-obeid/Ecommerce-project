@@ -2,6 +2,7 @@
 using Ecommerce_project.Mappings;
 using Ecommerce_project.Middleware;
 using Ecommerce_project.Repositories;
+using Ecommerce_project.RepositoriyInterfaces;
 using Ecommerce_project.Services;
 using Microsoft.EntityFrameworkCore;
 

@@ -13,3 +13,5 @@
 /Users/dareenobeid/Projects/Ecommerce-project/Application/obj/Debug/net7.0/refint/Application.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Application/obj/Debug/net7.0/Application.pdb
 /Users/dareenobeid/Projects/Ecommerce-project/Application/obj/Debug/net7.0/ref/Application.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Application/bin/Debug/net7.0/Infrastructure.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Application/bin/Debug/net7.0/Infrastructure.pdb

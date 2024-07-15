@@ -15,3 +15,5 @@
 /Users/dareenobeid/Projects/Ecommerce-project/Presentation/obj/Debug/net7.0/refint/Presentation.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Presentation/obj/Debug/net7.0/Presentation.pdb
 /Users/dareenobeid/Projects/Ecommerce-project/Presentation/obj/Debug/net7.0/ref/Presentation.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Presentation/bin/Debug/net7.0/Infrastructure.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Presentation/bin/Debug/net7.0/Infrastructure.pdb

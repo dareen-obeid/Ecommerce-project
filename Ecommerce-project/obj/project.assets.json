@@ -1590,7 +1590,8 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "AutoMapper": "12.0.0",
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Infrastructure": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -1629,7 +1630,6 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Application": "1.0.0",
-          "Microsoft.AspNetCore.OpenApi": "7.0.20",
           "Microsoft.EntityFrameworkCore": "7.0.20",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20"
         },
@@ -4342,16 +4342,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: Microsoft.AspNetCore.OpenApi from 7.0.20 to 7.0.19. Reference the package directly from the project to select a different version. \n Ecommerce-project -> Presentation -> Microsoft.AspNetCore.OpenApi (>= 7.0.20) \n Ecommerce-project -> Microsoft.AspNetCore.OpenApi (>= 7.0.19)",
-      "libraryId": "Microsoft.AspNetCore.OpenApi",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  }
 }

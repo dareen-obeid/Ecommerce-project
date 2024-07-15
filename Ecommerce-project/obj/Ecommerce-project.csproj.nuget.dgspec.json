@@ -28,6 +28,9 @@
             "projectReferences": {
               "/Users/dareenobeid/Projects/Ecommerce-project/Domain/Domain.csproj": {
                 "projectPath": "/Users/dareenobeid/Projects/Ecommerce-project/Domain/Domain.csproj"
+              },
+              "/Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/Infrastructure.csproj"
               }
             }
           }
@@ -327,10 +330,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[7.0.20, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.20, )"

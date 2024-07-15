@@ -791,7 +791,8 @@
       "Application/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Infrastructure": "1.0.0"
         },
         "runtime": {
           "Application.dll": {}
@@ -815,7 +816,6 @@
       "Presentation/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
-          "Microsoft.AspNetCore.OpenApi": "7.0.19",
           "Microsoft.EntityFrameworkCore": "7.0.20",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20"
         },

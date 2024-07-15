@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "JEuZWPfHla3VcZiPN1+yTCAbw2kw0bDbYf1abUHivFEQee0EgZARF0j1n5Sh2Ij02lEUIrlpdgvS83P9ckotLg==",
-  "success": false,
+  "dgSpecHash": "ZoDb+lbG6uG488f5M0rYYCNgsbQw+jwp8H71ku3PbHAyC0vOT0z31/1YBPd4U3HyLS08oTibxfSVID4spcTcHw==",
+  "success": true,
   "projectFilePath": "/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/Ecommerce-project.csproj",
   "expectedPackageFiles": [
     "/Users/dareenobeid/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
@@ -96,15 +96,5 @@
     "/Users/dareenobeid/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "/Users/dareenobeid/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: Microsoft.AspNetCore.OpenApi from 7.0.20 to 7.0.19. Reference the package directly from the project to select a different version. \n Ecommerce-project -> Presentation -> Microsoft.AspNetCore.OpenApi (>= 7.0.20) \n Ecommerce-project -> Microsoft.AspNetCore.OpenApi (>= 7.0.19)",
-      "libraryId": "Microsoft.AspNetCore.OpenApi",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

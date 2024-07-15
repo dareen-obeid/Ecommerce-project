@@ -1,6 +1,7 @@
 ﻿using System;
 using Ecommerce_project.Data;
 using Ecommerce_project.Models;
+using Ecommerce_project.RepositoriyInterfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce_project.Repositories
