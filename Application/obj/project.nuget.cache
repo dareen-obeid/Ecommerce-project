@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ObgYi0QvuzP2NKk29fm2dsMP5Ou2GxUiIBUcZ28VN8FB1ndSuIBuZrvYmHVviA4s8Tj9G2Oge7BPdyvjRgrF+A==",
+  "success": true,
+  "projectFilePath": "/Users/dareenobeid/Projects/Ecommerce-project/Application/Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/dareenobeid/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
+    "/Users/dareenobeid/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
