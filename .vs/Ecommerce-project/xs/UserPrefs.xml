@@ -1,11 +1,5 @@
 ﻿<Properties StartupConfiguration="{4B0AAE3F-9A32-4F28-9D1F-29EA9A73CE34}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Ecommerce-project PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Application/Services/ProductService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/Exceptions/NotFoundException.cs">
     <Files>
       <File FileName="Ecommerce-project/Program.cs" />
       <File FileName="Infrastructure/Repositories/ProductRepository.cs" />
@@ -18,7 +12,7 @@
       <File FileName="Application/Services/ProductService.cs" Line="6" Column="32" />
       <File FileName="Domain/Exceptions/BadRequestException.cs" />
       <File FileName="Ecommerce-project/Middleware/ExceptionHandlingMiddleware.cs" />
-      <File FileName="Domain/Exceptions/NotFoundException.cs" />
+      <File FileName="Domain/Exceptions/NotFoundException.cs" Line="10" Column="1" />
       <File FileName="Application/DTOs/CategoryDto.cs" />
       <File FileName="Application/DTOs/ProductCategoryDto.cs" />
       <File FileName="Application/DTOs/ProductDto.cs" />
@@ -32,9 +26,10 @@
         <State name="__root__">
           <Node name="Ecommerce-project" expanded="True">
             <Node name="Application" expanded="True">
-              <Node name="Services" expanded="True">
-                <Node name="ProductService.cs" selected="True" />
-              </Node>
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="Domain" expanded="True">
+              <Node name="Exceptions" expanded="True" />
             </Node>
             <Node name="Ecommerce-project" expanded="True" />
             <Node name="Presentation" expanded="True">
@@ -45,5 +40,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Ecommerce-project PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>

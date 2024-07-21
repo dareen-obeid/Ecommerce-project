@@ -45,6 +45,9 @@ namespace Ecommerce_project.Middleware
                 case ValidationException _:
                     statusCode = HttpStatusCode.UnprocessableEntity;
                     break;
+                case ArgumentException _:
+                    statusCode = HttpStatusCode.BadRequest;
+                    break;
                 default:
                     _logger.LogError(exception, "Unhandled exception occurred.");
                     message = "An unexpected error occurred";

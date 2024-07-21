@@ -47,6 +47,11 @@ namespace Ecommerce_project.Repositories
                 .Where(c => newCategoryIds.Contains(c.CategoryId) && c.IsActive)
                 .ToListAsync();
 
+            if (!categories.Any())
+            {
+                throw new ArgumentException("One or more categories are inactive or do not exist.");
+            }
+
             product.LastUpdatedDate = DateTime.UtcNow;
 
             existingProduct.ProductCategories.Clear();
@@ -60,8 +65,13 @@ namespace Ecommerce_project.Repositories
         public async Task AddProduct(Product product, IEnumerable<int> categoryIds)
         {
             var categories = await _context.Categories
-             .Where(c => categoryIds.Contains(c.CategoryId) && c.IsActive)
-             .ToListAsync();
+                .Where(c => categoryIds.Contains(c.CategoryId) && c.IsActive)
+                .ToListAsync();
+
+            if (!categories.Any())
+            {
+                throw new ArgumentException("One or more categories are inactive or do not exist.");
+            }
 
             product.ProductCategories = categories.Select(c => new ProductCategory { CategoryId = c.CategoryId }).ToList();
             _context.Products.Add(product);
@@ -155,4 +165,3 @@ namespace Ecommerce_project.Repositories
         }
     }
 }
-
