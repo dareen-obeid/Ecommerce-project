@@ -23,17 +23,14 @@ namespace Ecommerce_project.Controllers
             return Ok(stocks);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<StockDto>> GetStock(int id)
         {
             var stock = await _productService.GetStockById(id);
-            if (stock == null)
-                return NotFound($"Stock with ID {id} not found.");
-
             return Ok(stock);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateStock(int id, [FromBody] int newStock)
         {
 

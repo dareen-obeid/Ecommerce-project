@@ -32,28 +32,19 @@ namespace Ecommerce_project.Controllers
 
 
         // GET: api/Product/1
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<ProductDto>> GetProduct(int id)
         {
             var product = await _productService.GetProductById(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
             return Ok(product);
         }
 
 
 
         // PUT: api/Product/1
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateProduct([FromRoute] int id, ProductDto productDto)
         {
-
-            if (id != productDto.ProductId)
-            {
-                return BadRequest();
-            }
 
             await _productService.UpdateProduct(id, productDto);
             return NoContent();
@@ -70,7 +61,7 @@ namespace Ecommerce_project.Controllers
 
 
         // DELETE: api/Product/1
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             await _productService.DeleteProduct(id);

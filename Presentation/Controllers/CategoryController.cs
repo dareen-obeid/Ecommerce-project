@@ -25,25 +25,17 @@ namespace Ecommerce_project.Controllers
         }
 
         // GET: api/Category/1
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<CategoryDto>> GetCategory(int id)
         {
             var category = await _categoryService.GetCategoryById(id);
-            if (category == null)
-            {
-                return NotFound();
-            }
             return Ok(category);
         }
 
         // PUT: api/Category/1
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> PutCategory([FromRoute] int id, CategoryDto categoryDto)
         {
-            if (id != categoryDto.CategoryId)
-            {
-                return BadRequest();
-            }
             await _categoryService.UpdateCategory(id, categoryDto);
 
             return NoContent();
@@ -58,7 +50,7 @@ namespace Ecommerce_project.Controllers
         }
 
         // DELETE: api/Category/1
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             await _categoryService.DeleteCategory(id);

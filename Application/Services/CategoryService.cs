@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using AutoMapper;
+using Domain.Exceptions;
 using Ecommerce_project.DTOs;
 using Ecommerce_project.Models;
 using Ecommerce_project.RepositoriyInterfaces;
@@ -29,7 +31,7 @@ namespace Ecommerce_project.Services
             var category = await _categoryRepository.GetCategoryById(id);
             if (category == null)
             {
-                return null;
+                throw new NotFoundException($"Category with ID {id} not found.");
             }
             return _mapper.Map<CategoryDto>(category);
         }
@@ -37,15 +39,24 @@ namespace Ecommerce_project.Services
         public async Task UpdateCategory(int id, CategoryDto categoryDto)
         {
             var category = await _categoryRepository.GetCategoryById(id);
-            if (category != null || category.IsActive)
+
+            if (category == null || !category.IsActive)
             {
-                _mapper.Map(categoryDto, category);
-                await _categoryRepository.UpdateCategory(category);
+                throw new NotFoundException($"Category with ID {id} not found or is inactive.");
             }
+
+            //if (string.IsNullOrWhiteSpace(categoryDto.CategoryName))
+            //{
+            //    throw new ValidationException("Category name must not be empty.");
+            //}
+
+            _mapper.Map(categoryDto, category);
+                await _categoryRepository.UpdateCategory(category);
         }
 
         public async Task AddCategory(CategoryDto categoryDto)
         {
+
             var category = _mapper.Map<Category>(categoryDto);
             await _categoryRepository.AddCategory(category);
         }
@@ -54,6 +65,11 @@ namespace Ecommerce_project.Services
 
         public async Task DeleteCategory(int id)
         {
+            var category = await _categoryRepository.GetCategoryById(id);
+            if (category == null)
+            {
+                throw new NotFoundException($"Category with ID {id} not found.");
+            }
             await _categoryRepository.DeleteCategory(id);
         }
 

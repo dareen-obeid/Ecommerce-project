@@ -4,12 +4,14 @@
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/Infrastructure.AssemblyInfo.cs
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.CoreCompileInputs.cache
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/bin/Debug/net7.0/Infrastructure.deps.json
+/Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/bin/Debug/net7.0/Infrastructure.runtimeconfig.json
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/bin/Debug/net7.0/Infrastructure.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/bin/Debug/net7.0/Infrastructure.pdb
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/bin/Debug/net7.0/Domain.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/bin/Debug/net7.0/Domain.pdb
-/Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.CopyComplete
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/Infrastructure.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/refint/Infrastructure.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/Infrastructure.pdb
+/Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/Infrastructure.genruntimeconfig.cache
 /Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/ref/Infrastructure.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.CopyComplete

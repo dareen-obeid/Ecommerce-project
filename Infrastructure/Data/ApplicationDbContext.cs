@@ -24,6 +24,7 @@ namespace Ecommerce_project.Data
             {
                 entity.HasKey(p => p.ProductId);
                 entity.HasIndex(p => p.ProductCode).IsUnique();
+                entity.Property(p => p.Price).HasPrecision(18, 2);
             });
 
             modelBuilder.Entity<ProductCategory>()

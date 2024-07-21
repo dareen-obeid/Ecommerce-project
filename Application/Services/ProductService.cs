@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using AutoMapper;
+using Domain.Exceptions;
 using Ecommerce_project.DTOs;
 using Ecommerce_project.Models;
 using Ecommerce_project.RepositoriyInterfaces;
@@ -29,25 +31,45 @@ namespace Ecommerce_project.Services
             var product = await _productRepository.GetProductById(id);
             if (product == null)
             {
-                return null;
+                throw new NotFoundException($"Product with ID {id} not found.");
             }
             return _mapper.Map<ProductDto>(product);
         }
 
         public async Task UpdateProduct(int id, ProductDto productDto)
         {
-            var product = _mapper.Map<Product>(productDto);
+            var product = await _productRepository.GetProductById(id);
+            if (product == null)
+            {
+                throw new NotFoundException($"Product with ID {id} not found.");
+            }
+            if (productDto.Price <= 0)
+            {
+                throw new ValidationException("Price must be greater than zero.");
+            }
+            _mapper.Map(productDto, product);
             await _productRepository.UpdateProduct(product, productDto.CategoryIds);
+
         }
 
         public async Task AddProduct(ProductDto productDto)
         {
+            if (productDto.Price <= 0)
+            {
+                throw new ValidationException("Price must be greater than zero.");
+            }
             var product = _mapper.Map<Product>(productDto);
             await _productRepository.AddProduct(product, productDto.CategoryIds);
         }
 
         public async Task DeleteProduct(int id)
         {
+            var product = await _productRepository.GetProductById(id);
+
+            if (product == null)
+            {
+                throw new NotFoundException($"Product with ID {id} not found.");
+            }
             await _productRepository.DeleteProduct(id);
         }
 
@@ -75,7 +97,7 @@ namespace Ecommerce_project.Services
             var product = await _productRepository.GetProductById(id);
             if (product == null)
             {
-                return null;
+                throw new NotFoundException($"Product with ID {id} not found.");
             }
             return _mapper.Map<StockDto>(product);
         }
@@ -85,7 +107,11 @@ namespace Ecommerce_project.Services
             var product = await _productRepository.GetProductById(id);
             if (product == null || !product.IsActive)
             {
-                throw new KeyNotFoundException($"Product with ID {id} not found or inactive.");
+                throw new NotFoundException($"Product with ID {id} not found or inactive.");
+            }
+            if (newStock < 0)
+            {
+                throw new ValidationException("Stock level cannot be negative.");
             }
 
             if (newStock <= product.LowStockAlert)

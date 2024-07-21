@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Domain.Exceptions;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
-using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Ecommerce_project.Middleware
 {
@@ -9,9 +10,7 @@ namespace Ecommerce_project.Middleware
         private readonly RequestDelegate _next;
         private readonly ILogger<ExceptionHandlingMiddleware> _logger;
 
-        public ExceptionHandlingMiddleware(
-            RequestDelegate next,
-            ILogger<ExceptionHandlingMiddleware> logger)
+        public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
         {
             _next = next;
             _logger = logger;
@@ -25,20 +24,37 @@ namespace Ecommerce_project.Middleware
             }
             catch (Exception exception)
             {
-                _logger.LogError(
-                    exception, "Exception occurred: {Message}", exception.Message);
-
-                var problemDetails = new ProblemDetails
-                {
-                    Status = StatusCodes.Status500InternalServerError,
-                    Title = "Server Error"
-                };
-
-                context.Response.StatusCode =
-                    StatusCodes.Status500InternalServerError;
-
-                await context.Response.WriteAsJsonAsync(problemDetails);
+                await HandleExceptionAsync(context, exception);
             }
+        }
+
+        private Task HandleExceptionAsync(HttpContext context, Exception exception)
+        {
+            var statusCode = HttpStatusCode.InternalServerError; // Default to 500 if unexpected
+            var message = exception.Message;
+            context.Response.ContentType = "application/json";
+
+            switch (exception)
+            {
+                case NotFoundException _:
+                    statusCode = HttpStatusCode.NotFound;
+                    break;
+                case BadRequestException _:
+                    statusCode = HttpStatusCode.BadRequest;
+                    break;
+                case ValidationException _:
+                    statusCode = HttpStatusCode.UnprocessableEntity;
+                    break;
+                default:
+                    _logger.LogError(exception, "Unhandled exception occurred.");
+                    message = "An unexpected error occurred";
+                    break;
+            }
+
+            context.Response.StatusCode = (int)statusCode;
+            var result = JsonSerializer.Serialize(new { error = message });
+            return context.Response.WriteAsync(result);
         }
     }
 }
+

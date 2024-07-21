@@ -17,7 +17,11 @@ builder.Services.AddSwaggerGen();
 
 // Add the DbContext service
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        x => x.MigrationsAssembly("Infrastructure")
+    ));
+
 
 // Register AutoMapper and specify the assembly containing the profiles
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);

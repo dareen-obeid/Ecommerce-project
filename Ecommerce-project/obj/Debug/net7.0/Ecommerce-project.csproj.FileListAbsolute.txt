@@ -55,6 +55,14 @@
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Application.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Domain.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Infrastructure.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Presentation.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Application.pdb
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Domain.pdb
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Infrastructure.pdb
+/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Presentation.pdb
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Ecommerce-project.csproj.AssemblyReference.cache
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Ecommerce-project.GeneratedMSBuildEditorConfig.editorconfig
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Ecommerce-project.AssemblyInfoInputs.cache
@@ -76,11 +84,3 @@
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Ecommerce-project.genruntimeconfig.cache
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/ref/Ecommerce-project.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/obj/Debug/net7.0/Ecommerce-project.csproj.CopyComplete
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Application.dll
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Domain.dll
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Infrastructure.dll
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Infrastructure.pdb
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Application.pdb
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Domain.pdb
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Presentation.dll
-/Users/dareenobeid/Projects/Ecommerce-project/Ecommerce-project/bin/Debug/net7.0/Presentation.pdb

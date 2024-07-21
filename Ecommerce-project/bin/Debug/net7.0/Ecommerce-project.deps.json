@@ -807,7 +807,8 @@
         "dependencies": {
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.2",
-          "Microsoft.EntityFrameworkCore": "7.0.20"
+          "Microsoft.EntityFrameworkCore": "7.0.20",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20"
         },
         "runtime": {
           "Infrastructure.dll": {}

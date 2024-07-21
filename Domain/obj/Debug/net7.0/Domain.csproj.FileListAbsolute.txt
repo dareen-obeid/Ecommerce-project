@@ -1,7 +1,6 @@
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/bin/Debug/net7.0/Domain.deps.json
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/bin/Debug/net7.0/Domain.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/bin/Debug/net7.0/Domain.pdb
-/Users/dareenobeid/Projects/Ecommerce-project/Domain/obj/Debug/net7.0/Domain.csproj.AssemblyReference.cache
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/obj/Debug/net7.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/obj/Debug/net7.0/Domain.AssemblyInfoInputs.cache
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs
@@ -10,3 +9,4 @@
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/obj/Debug/net7.0/refint/Domain.dll
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/obj/Debug/net7.0/Domain.pdb
 /Users/dareenobeid/Projects/Ecommerce-project/Domain/obj/Debug/net7.0/ref/Domain.dll
+/Users/dareenobeid/Projects/Ecommerce-project/Domain/obj/Debug/net7.0/Domain.csproj.AssemblyReference.cache
