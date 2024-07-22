@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain.Exceptions;
 using Ecommerce_project.Data;
 using Ecommerce_project.Models;
 using Ecommerce_project.RepositoriyInterfaces;
@@ -23,6 +24,12 @@ namespace Ecommerce_project.Repositories
         public async Task<Category> GetCategoryById(int id)
         {
             var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryId == id && c.IsActive);
+
+            if (category == null)
+            {
+                throw new NotFoundException($"Category with ID {id} not found.");
+            }
+
             return category;
         }
 
@@ -43,9 +50,13 @@ namespace Ecommerce_project.Repositories
         public async Task DeleteCategory(int id)
         {
             var category = await _context.Categories.FindAsync(id);
-            if (category != null)
+
+            if (category == null)
             {
-                var productCategories = await _context.ProductCategories
+                throw new NotFoundException("Category not found.");
+            }
+
+            var productCategories = await _context.ProductCategories
                     .Where(pc => pc.CategoryId == id)
                     .ToListAsync();
                 _context.ProductCategories.RemoveRange(productCategories);
@@ -54,7 +65,7 @@ namespace Ecommerce_project.Repositories
                 _context.Entry(category).State = EntityState.Modified;
 
                 await _context.SaveChangesAsync();
-            }
+         
         }
 
         

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using Domain.Exceptions;
 using Ecommerce_project.Data;
 using Ecommerce_project.Models;
 using Ecommerce_project.RepositoriyInterfaces;
@@ -27,10 +29,18 @@ namespace Ecommerce_project.Repositories
 
         public async Task<Product> GetProductById(int id)
         {
-            return await _context.Products
+            var Product = await _context.Products
                               .Include(p => p.ProductCategories)
                               .ThenInclude(pc => pc.Category)
                               .FirstOrDefaultAsync(p => p.ProductId == id && p.IsActive);
+
+            if (Product == null)
+            {
+                throw new NotFoundException($"Category with ID {id} not found.");
+            }
+
+            return Product;
+
         }
 
 
@@ -40,7 +50,7 @@ namespace Ecommerce_project.Repositories
             var existingProduct = await GetProductById(product.ProductId);
             if (existingProduct == null)
             {
-                throw new KeyNotFoundException("Product not found.");
+                throw new NotFoundException("Product not found.");
             }
 
             var categories = await _context.Categories
@@ -49,7 +59,7 @@ namespace Ecommerce_project.Repositories
 
             if (!categories.Any())
             {
-                throw new ArgumentException("One or more categories are inactive or do not exist.");
+                throw new ValidationException("One or more categories are inactive or do not exist.");
             }
 
             product.LastUpdatedDate = DateTime.UtcNow;
@@ -70,7 +80,7 @@ namespace Ecommerce_project.Repositories
 
             if (!categories.Any())
             {
-                throw new ArgumentException("One or more categories are inactive or do not exist.");
+                throw new ValidationException("One or more categories are inactive or do not exist.");
             }
 
             product.ProductCategories = categories.Select(c => new ProductCategory { CategoryId = c.CategoryId }).ToList();
