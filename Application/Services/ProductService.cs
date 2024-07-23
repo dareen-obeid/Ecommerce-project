@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Application.Validation;
 using AutoMapper;
 using Domain.Exceptions;
 using Ecommerce_project.DTOs;
@@ -12,11 +13,15 @@ namespace Ecommerce_project.Services
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
+        private readonly IValidator<ProductDto> _productValidator;
 
-        public ProductService(IProductRepository productRepository, IMapper mapper)
+
+        public ProductService(IProductRepository productRepository, IMapper mapper, IValidator<ProductDto> productValidator)
         {
             _productRepository = productRepository;
             _mapper = mapper;
+            _productValidator = productValidator;
+
         }
 
 
@@ -43,9 +48,10 @@ namespace Ecommerce_project.Services
             {
                 throw new NotFoundException($"Product with ID {id} not found.");
             }
-            if (productDto.Price <= 0)
+            _productValidator.Validate(productDto);
+            if (!await _productRepository.IsProductCodeUnique(productDto.ProductCode, productDto.ProductId))
             {
-                throw new ValidationException("Price must be greater than zero.");
+                throw new ValidationException("Product code must be unique.");
             }
             _mapper.Map(productDto, product);
             await _productRepository.UpdateProduct(product, productDto.CategoryIds);
@@ -54,9 +60,11 @@ namespace Ecommerce_project.Services
 
         public async Task AddProduct(ProductDto productDto)
         {
-            if (productDto.Price <= 0)
+            _productValidator.Validate(productDto);
+
+            if (!await _productRepository.IsProductCodeUnique(productDto.ProductCode, productDto.ProductId))
             {
-                throw new ValidationException("Price must be greater than zero.");
+                throw new ValidationException("Product code must be unique.");
             }
             var product = _mapper.Map<Product>(productDto);
             await _productRepository.AddProduct(product, productDto.CategoryIds);

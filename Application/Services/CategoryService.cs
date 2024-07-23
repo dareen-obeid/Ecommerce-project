@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Application.Validation;
 using AutoMapper;
 using Domain.Exceptions;
 using Ecommerce_project.DTOs;
@@ -13,11 +14,13 @@ namespace Ecommerce_project.Services
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
+        private readonly IValidator<CategoryDto> _categoryValidator;
 
-        public CategoryService(ICategoryRepository repository, IMapper mapper)
+        public CategoryService(ICategoryRepository repository, IMapper mapper, IValidator<CategoryDto> categoryValidator)
         {
             _categoryRepository = repository;
             _mapper = mapper;
+            _categoryValidator = categoryValidator;
         }
 
         public async Task<IEnumerable<CategoryDto>> GetAllActiveCategories()
@@ -45,10 +48,7 @@ namespace Ecommerce_project.Services
                 throw new NotFoundException($"Category with ID {id} not found or is inactive.");
             }
 
-            //if (string.IsNullOrWhiteSpace(categoryDto.CategoryName))
-            //{
-            //    throw new ValidationException("Category name must not be empty.");
-            //}
+            _categoryValidator.Validate(categoryDto);
 
             _mapper.Map(categoryDto, category);
                 await _categoryRepository.UpdateCategory(category);
@@ -56,7 +56,7 @@ namespace Ecommerce_project.Services
 
         public async Task AddCategory(CategoryDto categoryDto)
         {
-
+            _categoryValidator.Validate(categoryDto);
             var category = _mapper.Map<Category>(categoryDto);
             await _categoryRepository.AddCategory(category);
         }

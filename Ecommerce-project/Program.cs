@@ -1,4 +1,6 @@
-﻿using Ecommerce_project.Data;
+﻿using Application.Validation;
+using Ecommerce_project.Data;
+using Ecommerce_project.DTOs;
 using Ecommerce_project.Mappings;
 using Ecommerce_project.Middleware;
 using Ecommerce_project.Repositories;
@@ -26,11 +28,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Register AutoMapper and specify the assembly containing the profiles
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
+
+builder.Services.AddScoped<IValidator<CategoryDto>, CategoryValidator>();
+builder.Services.AddScoped<IValidator<ProductDto>, ProductValidator>();
+
 // Register repositories and services
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+
 
 
 

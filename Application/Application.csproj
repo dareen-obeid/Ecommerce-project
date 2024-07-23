@@ -10,11 +10,13 @@
     <None Remove="Services\" />
     <None Remove="DTOs\" />
     <None Remove="Mappings\" />
+    <None Remove="Validation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="DTOs\" />
     <Folder Include="Mappings\" />
+    <Folder Include="Validation\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.0" />

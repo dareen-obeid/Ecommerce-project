@@ -173,5 +173,10 @@ namespace Ecommerce_project.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<bool> IsProductCodeUnique(string productCode, int productId)
+        {
+            return !await _context.Products.AnyAsync(p => p.ProductCode == productCode && p.ProductId != productId);
+        }
     }
 }

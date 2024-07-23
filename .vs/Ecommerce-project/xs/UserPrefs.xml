@@ -1,40 +1,43 @@
 ﻿<Properties StartupConfiguration="{4B0AAE3F-9A32-4F28-9D1F-29EA9A73CE34}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Repositories/ProductRepository.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Application/Validation/ProductValidator.cs">
     <Files>
-      <File FileName="Application/Services/ProductService.cs" />
-      <File FileName="Infrastructure/Repositories/ProductRepository.cs" Line="83" Column="46" />
-      <File FileName="Infrastructure/Repositories/CategoryRepository.cs" />
-      <File FileName="Application/Services/CategoryService.cs" />
-      <File FileName="Application/Services/Interfaces/ICategoryService.cs" />
-      <File FileName="Domain/RepositoriyInterfaces/ICategoryRepository.cs" />
-      <File FileName="Domain/RepositoriyInterfaces/IProductRepository.cs" Line="1" Column="1" />
-      <File FileName="Ecommerce-project/Middleware/ExceptionHandlingMiddleware.cs" />
-      <File FileName="Application/DTOs/StockDto.cs" />
-      <File FileName="Application/DTOs/ProductDto.cs" />
-      <File FileName="Application/DTOs/ProductCategoryDto.cs" />
-      <File FileName="Application/DTOs/CategoryDto.cs" Line="16" Column="6" />
+      <File FileName="Application/Validation/IValidator.cs" Line="1" Column="1" />
+      <File FileName="Application/Validation/ProductValidator.cs" Line="35" Column="1" />
+      <File FileName="Application/Validation/CategoryValidator.cs" Line="1" Column="1" />
+      <File FileName="Application/DTOs/ProductDto.cs" Line="1" Column="1" />
+      <File FileName="Application/Services/ProductService.cs" Line="63" Column="47" />
+      <File FileName="Application/Services/CategoryService.cs" Line="52" Column="1" />
+      <File FileName="Ecommerce-project/Program.cs" Line="62" Column="1" />
+      <File FileName="Infrastructure/Repositories/ProductRepository.cs" Line="177" Column="86" />
+      <File FileName="Ecommerce-project/Middleware/ExceptionHandlingMiddleware.cs" Line="54" Column="1" />
+      <File FileName="Infrastructure/Data/ApplicationDbContext.cs" Line="30" Column="51" />
+      <File FileName="Domain/RepositoriyInterfaces/IProductRepository.cs" Line="19" Column="75" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Ecommerce-project" expanded="True">
-            <Node name="Application" expanded="True">
+            <Node name="Application">
               <Node name="DTOs" expanded="True" />
               <Node name="Services" expanded="True" />
+              <Node name="Validation" expanded="True">
+                <Node name="ProductValidator.cs" selected="True" />
+              </Node>
             </Node>
-            <Node name="Domain" expanded="True">
+            <Node name="Domain">
               <Node name="Exceptions" expanded="True" />
-              <Node name="RepositoriyInterfaces" expanded="True" />
             </Node>
             <Node name="Ecommerce-project" expanded="True">
               <Node name="Middleware" expanded="True" />
             </Node>
-            <Node name="Infrastructure" expanded="True">
-              <Node name="Repositories" expanded="True">
-                <Node name="ProductRepository.cs" selected="True" />
-              </Node>
+            <Node name="Infrastructure">
+              <Node name="Data" expanded="True" />
             </Node>
             <Node name="Presentation" expanded="True">
               <Node name="Controllers" expanded="True" />
@@ -44,9 +47,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Ecommerce-project PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

@@ -16,7 +16,7 @@ namespace Ecommerce_project.RepositoriyInterfaces
         Task<IEnumerable<Product>> FilterProducts(string category, decimal? minPrice, decimal? maxPrice);
 
         Task UpdateStock(int id, int newStock);
-
+        Task<bool> IsProductCodeUnique(string productCode, int productId);
     }
 
 }
